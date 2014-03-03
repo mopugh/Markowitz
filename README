@@ -1,2 +1,3 @@
 First Attempt at Markowitz portfolio optimization
 Must have CVXOPT package installed
+Markowitz.py currently has issues storing the returns
