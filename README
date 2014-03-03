@@ -1,3 +1,5 @@
 First Attempt at Markowitz portfolio optimization
 Must have CVXOPT package installed
 Markowitz.py currently has issues storing the returns
+Need to work out "causality." As it stands, may be "looking into the future"
+Causality issues based around time shifting.
