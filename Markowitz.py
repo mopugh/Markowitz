@@ -16,7 +16,7 @@ from pandas.tseries.offsets import BusinessDay
 # Load Flag
 # if 1, load data from file
 # if not 1, get data from web and save to file
-load_flag = 1
+load_flag = 0
 filename = 'StockPrices.csv'
 
 StockList = ['AAPL','IBM','MSFT','GOOG','QCOM']
@@ -51,7 +51,7 @@ filter_len = shift
 
 # Which shift to use, positive or negative?
 # shift_returns = price/price.shift(shift) - 1
-shift_returns = price/price.shift(-shift) - 1
+shift_returns = price/price.shift(shift) - 1
 shift_returns_mean = pd.ewma(shift_returns,span=filter_len)
 shift_returns_var = pd.ewmvar(shift_returns,span=filter_len)
 
@@ -134,7 +134,7 @@ while DATE_INDEX_iter + 20 < END_INDEX:
 	DISTRIBUTION[DATEiter.strftime('%Y-%m-%d')] = xsol
 
 	DATEiter2 = INDEX[DATE_INDEX_iter+shift]
-	temp1 = price.ix[DATEiter]/price.ix[DATEiter2]
+	temp1 = price.ix[DATEiter2]/price.ix[DATEiter]
 	temp1.ix[StockList[-1]] = interest_rate+1
 	temp2 = Series(xsol.ravel(),index=StockList)
 	TOTAL_VALUE = np.sum(TOTAL_VALUE*temp2*temp1)
