@@ -148,7 +148,7 @@ while DATE_INDEX_iter + 20 < END_INDEX:
 	# print RETURNS[INDEX[DATE_INDEX_iter]]
 	print RETURNS[DATE_INDEX_iter]
 
-Figures
+# Figures
 DISTRIBUTION.T.plot(kind='bar',stacked=True)
 plt.ylim([0,1])
 plt.xlabel('Date')
